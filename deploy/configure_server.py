@@ -6,8 +6,11 @@ import shutil
 import subprocess
 import pwd
 from datetime import datetime
+import sys
 
 ROOT = Path('/opt/power-design-standards-agent')
+sys.path.insert(0,str(ROOT))
+from backend.auth import password_hash
 DOMAIN = 'gb.sen666.com'
 def run(*args, **kwargs):
     return subprocess.run(args, check=True, **kwargs)
@@ -24,21 +27,15 @@ os.chown(data, account.pw_uid, account.pw_gid)
 env = ROOT / '.env'
 if env.exists():
     raise RuntimeError('已有 .env，拒绝覆盖。请核对部署状态后再继续。')
-env.write_text('DATA_DIR=/var/lib/power-standards\nALLOW_EXTERNAL_API=false\nEMBEDDING_PROVIDER=local\nTOP_K=10\nALLOWED_HOSTS=127.0.0.1,localhost,gb.sen666.com\n',encoding='utf-8')
+password = secrets.token_urlsafe(24)
+env.write_text('DATA_DIR=/var/lib/power-standards\nALLOW_EXTERNAL_API=false\nEMBEDDING_PROVIDER=local\nTOP_K=10\nALLOWED_HOSTS=127.0.0.1,localhost,gb.sen666.com\n'+f'LOGIN_PASSWORD_HASH={password_hash(password)}\nSESSION_SECRET={secrets.token_hex(32)}\n',encoding='utf-8')
 env.chmod(0o640)
 os.chown(env,0,account.pw_gid)
-authfile = Path('/etc/nginx/gb.htpasswd')
-if not authfile.exists():
-    password = secrets.token_urlsafe(24)
-    hashed = subprocess.check_output(['openssl','passwd','-apr1','-stdin'],input=(password+'\n').encode()).decode().strip()
-    authfile.write_text('ys199:'+hashed+'\n')
-    authfile.chmod(0o640)
-    os.chown(authfile,0,pwd.getpwnam('www-data').pw_gid)
-    credentials = Path('/home/ubuntu/.gb-login.txt')
-    credentials.write_text(f'网址：https://{DOMAIN}\n用户名：ys199\n密码：{password}\n方式：浏览器 HTTP Basic 登录。请妥善保管，不要提交到 GitHub。\n',encoding='utf-8')
-    credentials.chmod(0o600)
-    ubuntu = pwd.getpwnam('ubuntu')
-    os.chown(credentials,ubuntu.pw_uid,ubuntu.pw_gid)
+credentials = Path('/home/ubuntu/.gb-login.txt')
+credentials.write_text(f'网址：https://{DOMAIN}\n密码：{password}\n方式：网页单密码登录，无需用户名。请妥善保管，不要提交到 GitHub。\n',encoding='utf-8')
+credentials.chmod(0o600)
+ubuntu = pwd.getpwnam('ubuntu')
+os.chown(credentials,ubuntu.pw_uid,ubuntu.pw_gid)
 site = Path('/etc/nginx/sites-available') / DOMAIN
 if site.exists():
     raise RuntimeError('已有站点，拒绝覆盖。')

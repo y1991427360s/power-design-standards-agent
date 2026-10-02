@@ -12,9 +12,9 @@ def main():
             values[key] = value.strip()
     url = values['网址']
     with httpx.Client(base_url=url, timeout=30) as client:
-        assert client.get('/').status_code == 401
+        assert client.get('/').status_code == 303
         assert client.get('/api/documents').status_code == 401
-        client.auth = (values['用户名'],values['密码'])
+        assert client.post('/api/login',json={'password':values['密码']}).status_code==200
         response = client.get('/')
         assert response.status_code == 200 and '电力设计规范' in response.text
         docs = client.get('/api/documents').json()

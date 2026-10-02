@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from uuid import uuid4
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Request
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
@@ -15,6 +15,7 @@ from backend.services import import_document, reparse, now
 from agent.query import answer
 from rag.search import search
 from rag.embeddings import Embeddings
+from backend import auth
 
 @asynccontextmanager
 async def lifespan(app):
@@ -32,7 +33,27 @@ async def local_protection(request: Request, call_next):
     origin = request.headers.get('origin')
     if origin and origin not in (f'http://{request.headers.get("host")}',f'https://{request.headers.get("host")}'):
         return JSONResponse({'detail':'拒绝跨站请求'},status_code=403)
+    if auth.enabled() and request.url.path not in ('/login','/api/login') and not auth.valid_session(request):
+        if request.url.path.startswith('/api/'):
+            return JSONResponse({'detail':'请先登录'},status_code=401)
+        return RedirectResponse('/login',status_code=303)
     return await call_next(request)
+
+class Login(BaseModel):
+    password: str = Field(min_length=1,max_length=256)
+
+@app.get('/login')
+def login_page(): return auth.login_page()
+
+@app.post('/api/login')
+def login(data: Login, request: Request):
+    return auth.login_response(data.password,request.url.scheme=='https')
+
+@app.post('/api/logout')
+def logout():
+    response = JSONResponse({'ok':True})
+    response.delete_cookie(auth.COOKIE,path='/')
+    return response
 
 @app.exception_handler(Exception)
 async def unhandled(request, exc):

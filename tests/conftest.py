@@ -6,6 +6,8 @@ os.environ['ALLOW_EXTERNAL_API'] = 'false'
 os.environ['EMBEDDING_PROVIDER'] = 'local'
 os.environ['LLM_MODEL'] = ''
 os.environ['ALLOWED_HOSTS'] = '127.0.0.1,localhost,testserver'
+os.environ.pop('LOGIN_PASSWORD_HASH',None)
+os.environ.pop('SESSION_SECRET',None)
 import pytest
 from fastapi.testclient import TestClient
 from backend.main import app
