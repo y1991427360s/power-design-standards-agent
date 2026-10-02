@@ -11,5 +11,6 @@ FILES.mkdir(exist_ok=True)
 DB = DATA / 'knowledge.sqlite3'
 TOP_K = max(1, min(30, int(os.getenv('TOP_K', '10'))))
 ALLOW_EXTERNAL = os.getenv('ALLOW_EXTERNAL_API', 'false').lower() == 'true'
+ALLOWED_HOSTS = {host.strip().lower() for host in os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost,testserver').split(',') if host.strip()}
 SOURCE_TYPES = ['STANDARD', 'ENTERPRISE_STANDARD', 'TYPICAL_DESIGN', 'PROJECT_EXPERIENCE', 'PERSONAL_RULE', 'MANUFACTURER']
 STANDARD_TYPES = ['国家标准', '行业标准', '能源行业标准', '国网企业标准', '南网企业标准', '设计院内部规定', '其他']

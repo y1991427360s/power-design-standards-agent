@@ -9,7 +9,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
-from config.settings import ROOT, FILES, SOURCE_TYPES, STANDARD_TYPES, TOP_K, ALLOW_EXTERNAL
+from config.settings import ROOT, FILES, SOURCE_TYPES, STANDARD_TYPES, TOP_K, ALLOW_EXTERNAL, ALLOWED_HOSTS
 from database.store import init_db, connect
 from backend.services import import_document, reparse, now
 from agent.query import answer
@@ -25,10 +25,10 @@ app = FastAPI(title='电力设计规范智能查询 Agent',lifespan=lifespan)
 
 @app.middleware('http')
 async def local_protection(request: Request, call_next):
-    # 无登录的 V1 仅供本机：阻止跨站写入、DNS rebinding。
-    host = request.headers.get('host','').split(':')[0]
-    if host not in ('127.0.0.1','localhost','testserver','[::1]'):
-        return JSONResponse({'detail':'V1 仅支持本机访问'},status_code=403)
+    # 公开部署必须在反向代理配置访问保护；默认仍仅供本机。
+    host = request.headers.get('host','').split(':')[0].lower()
+    if host not in ALLOWED_HOSTS:
+        return JSONResponse({'detail':'访问域名未授权'},status_code=403)
     origin = request.headers.get('origin')
     if origin and origin not in (f'http://{request.headers.get("host")}',f'https://{request.headers.get("host")}'):
         return JSONResponse({'detail':'拒绝跨站请求'},status_code=403)

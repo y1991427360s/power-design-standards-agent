@@ -1,0 +1,23 @@
+[Unit]
+Description=Power design standards query agent
+After=network.target
+
+[Service]
+Type=simple
+User=powerstandards
+Group=powerstandards
+WorkingDirectory=/opt/power-design-standards-agent
+EnvironmentFile=/opt/power-design-standards-agent/.env
+ExecStart=/opt/power-design-standards-agent/.venv/bin/python -m uvicorn backend.main:app --host 127.0.0.1 --port 8030 --proxy-headers --forwarded-allow-ips 127.0.0.1
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/power-standards
+MemoryMax=768M
+
+[Install]
+WantedBy=multi-user.target
