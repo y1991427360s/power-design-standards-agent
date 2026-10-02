@@ -1,4 +1,6 @@
-# 电力设计规范智能查询 Agent · 本地 V1
+# 电力设计规范智能查询 Agent
+
+Current Stage: V2 – Retrieval Evaluation
 
 面向电力设计工程师的本地资料库、条文检索与来源核对工具。可直接运行，无需配置模型 API。**初始资料全部是虚构 DEMO，不能用于实际工程。**
 
@@ -101,6 +103,27 @@ node --check frontend/app.js
 - “紫色端子标记备用芯”：历史经验只能在参考资料中。
 
 ## 数据、备份与限制
+
+真实资料建议与代码仓库物理分离，使用仓库外的独立目录，不在该目录初始化 Git：
+
+```text
+power-design-standards-agent/   公开代码仓库
+power-design-data/             私有数据目录（位于代码仓库外）
+├─ standards/                  合法来源原件，供人工整理和上传
+├─ files/                      程序自动管理的上传原件
+├─ knowledge.sqlite3           程序数据库
+├─ golden/
+│  └─ questions.json           人工标注的真实工程金标
+└─ reports/                    私有评测报告
+```
+
+在代码仓库的私有 `.env` 中设置 `DATA_DIR` 为 `power-design-data` 的绝对路径。程序会将数据库和上传文件放在该目录的 `knowledge.sqlite3` 与 `files/`；`standards/` 只用于人工整理，不会自动导入。真实评测时同时指定外部金标和报告路径：
+
+```powershell
+.\.venv\Scripts\python.exe -m evaluation.run --mode real --database '..\power-design-data\knowledge.sqlite3' --dataset '..\power-design-data\golden\questions.json' --output '..\power-design-data\reports'
+```
+
+现有线上数据已位于仓库外的 `/var/lib/power-standards`，无需为采用此布局重新部署。已有库迁移不能只修改 DATA_DIR：数据库保存了原件的绝对路径，须先备份、停服、迁移文件并校正路径，再验证原文件访问。这里仅说明推荐布局，未迁移已有数据。Git 忽略规则额外排除误放进代码仓库的 `power-design-data/`；它不能代替物理隔离或撤回已经被跟踪的文件。
 
 数据位置 `knowledge/storage/knowledge.sqlite3`，原始文件 `knowledge/storage/files/`。聊天及引用也在本地 SQLite。停服后复制整个 storage 备份（避免漏掉 WAL 文件）。删除文档会删除原始文件和当前索引，聊天中的旧引用快照仍保留，但来源链接失效；重新解析后旧条文 ID 同样失效。
 

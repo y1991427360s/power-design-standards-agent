@@ -3,6 +3,7 @@
 __pycache__/
 .pytest_cache/
 knowledge/storage/
+power-design-data/
 *.log
 deploy-source.tar.gz
 reports/
