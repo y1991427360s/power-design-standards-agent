@@ -1,0 +1,1050 @@
+{
+  "schema_version": 1,
+  "mode": "demo",
+  "scope": "DEMO flow validation only",
+  "corpus_sha256": "ca21258f26fb9495f25d5c14134a5cecc74ec365ca7a4afee37d7d66facfb400",
+  "algorithm": {
+    "rrf_constant": 60,
+    "minimum_overlap": 0.12,
+    "requires_positive_bm25": true,
+    "completeness_multiplier": 1.08,
+    "standard_number_multiplier": 1.3,
+    "category_filter": "not applied",
+    "llm_selection": "disabled"
+  },
+  "retrieval_depth": 10,
+  "embedding": "local-concept-hash-v1",
+  "eligible_clauses": 17,
+  "summary": {
+    "document": {
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "recall@1": 0.8888888888888888,
+      "recall@3": 1.0,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    "clause": {
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "recall@1": 0.8888888888888888,
+      "recall@3": 1.0,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    "total_questions": 12,
+    "positive_questions": 9,
+    "negative_questions": 3,
+    "negative_rejection_accuracy": 1.0,
+    "negative_false_formal_rate": 0.0
+  },
+  "details": [
+    {
+      "question": {
+        "id": "SEC-001",
+        "question": "控制电缆屏蔽层应如何接地？",
+        "domain": "控制电缆",
+        "expected_documents": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": null
+          }
+        ],
+        "expected_clauses": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": "3.2.1"
+          }
+        ],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": false,
+        "notes": "自编 DEMO，只验证检索流程，不代表工程要求。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 10.3696,
+          "vector_score": 0.5335,
+          "rrf_score": 0.03278688524590164,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.03541,
+          "keyword_rank": 1,
+          "vector_rank": 1
+        },
+        {
+          "standard_code": "DEMO-002",
+          "standard_name": "测试用电力设计资料 DEMO-002",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "ENTERPRISE_STANDARD",
+          "is_demo": 1,
+          "keyword_score": 5.9754,
+          "vector_score": 0.4091,
+          "rrf_score": 0.03225806451612903,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.034839,
+          "keyword_rank": 2,
+          "vector_rank": 2
+        },
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.2",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 1.8977,
+          "vector_score": 0.1448,
+          "rrf_score": 0.031746031746031744,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.034286,
+          "keyword_rank": 3,
+          "vector_rank": 3
+        }
+      ],
+      "document": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "clause": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "failed": false
+    },
+    {
+      "question": {
+        "id": "SEC-002",
+        "question": "控制电缆备用芯应如何编号？",
+        "domain": "电气二次",
+        "expected_documents": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": null
+          }
+        ],
+        "expected_clauses": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": "3.2.2"
+          }
+        ],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": false,
+        "notes": "自编 DEMO，只验证检索流程，不代表工程要求。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.2",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 10.8248,
+          "vector_score": 0.3862,
+          "rrf_score": 0.03278688524590164,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.03541,
+          "keyword_rank": 1,
+          "vector_rank": 1
+        },
+        {
+          "standard_code": "DEMO-002",
+          "standard_name": "测试用电力设计资料 DEMO-002",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "ENTERPRISE_STANDARD",
+          "is_demo": 1,
+          "keyword_score": 1.9978,
+          "vector_score": 0.0909,
+          "rrf_score": 0.03200204813108039,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.034562,
+          "keyword_rank": 2,
+          "vector_rank": 3
+        },
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 1.9299,
+          "vector_score": 0.1334,
+          "rrf_score": 0.03200204813108039,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.034562,
+          "keyword_rank": 3,
+          "vector_rank": 2
+        }
+      ],
+      "document": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "clause": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "failed": false
+    },
+    {
+      "question": {
+        "id": "SEC-003",
+        "question": "DEMO-001 和 DEMO-002 对控制电缆屏蔽层分别怎么规定？",
+        "domain": "控制电缆",
+        "expected_documents": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": null
+          },
+          {
+            "standard_code": "DEMO-002",
+            "version": "2026 测试版",
+            "clause": null
+          }
+        ],
+        "expected_clauses": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": "3.2.1"
+          },
+          {
+            "standard_code": "DEMO-002",
+            "version": "2026 测试版",
+            "clause": "3.2.1"
+          }
+        ],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": false,
+        "notes": "自编 DEMO，只验证检索流程，不代表工程要求。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 7.9382,
+          "vector_score": 0.4055,
+          "rrf_score": 0.03278688524590164,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.3,
+          "category_bonus": 1.0,
+          "final_score": 0.046033,
+          "keyword_rank": 1,
+          "vector_rank": 1
+        },
+        {
+          "standard_code": "DEMO-002",
+          "standard_name": "测试用电力设计资料 DEMO-002",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "ENTERPRISE_STANDARD",
+          "is_demo": 1,
+          "keyword_score": 6.8663,
+          "vector_score": 0.3769,
+          "rrf_score": 0.03225806451612903,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.3,
+          "category_bonus": 1.0,
+          "final_score": 0.04529,
+          "keyword_rank": 2,
+          "vector_rank": 2
+        },
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.2",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 2.7439,
+          "vector_score": 0.1601,
+          "rrf_score": 0.031746031746031744,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.3,
+          "category_bonus": 1.0,
+          "final_score": 0.044571,
+          "keyword_rank": 3,
+          "vector_rank": 3
+        }
+      ],
+      "document": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "clause": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "failed": false
+    },
+    {
+      "question": {
+        "id": "SEC-004",
+        "question": "DEMO-002 屏蔽层连接位置如何记录？",
+        "domain": "控制电缆",
+        "expected_documents": [
+          {
+            "standard_code": "DEMO-002",
+            "version": "2026 测试版",
+            "clause": null
+          }
+        ],
+        "expected_clauses": [
+          {
+            "standard_code": "DEMO-002",
+            "version": "2026 测试版",
+            "clause": "3.2.1"
+          }
+        ],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": false,
+        "notes": "自编 DEMO，只验证检索流程，不代表工程要求。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [
+        {
+          "standard_code": "DEMO-002",
+          "standard_name": "测试用电力设计资料 DEMO-002",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "ENTERPRISE_STANDARD",
+          "is_demo": 1,
+          "keyword_score": 10.6956,
+          "vector_score": 0.585,
+          "rrf_score": 0.03278688524590164,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.3,
+          "category_bonus": 1.0,
+          "final_score": 0.046033,
+          "keyword_rank": 1,
+          "vector_rank": 1
+        }
+      ],
+      "document": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "clause": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "failed": false
+    },
+    {
+      "question": {
+        "id": "SEC-005",
+        "question": "电流互感器二次回路接线前需要核对什么？",
+        "domain": "继电保护",
+        "expected_documents": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": null
+          }
+        ],
+        "expected_clauses": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": "6.1.1"
+          }
+        ],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": false,
+        "notes": "自编 DEMO，只验证检索流程，不代表工程要求。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "6.1.1",
+          "page": 2,
+          "page_end": 2,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 10.4152,
+          "vector_score": 0.3508,
+          "rrf_score": 0.03278688524590164,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.03541,
+          "keyword_rank": 1,
+          "vector_rank": 1
+        }
+      ],
+      "document": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "clause": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "failed": false
+    },
+    {
+      "question": {
+        "id": "SEC-006",
+        "question": "CT 二次接线前咋检查极性标记？",
+        "domain": "电气二次",
+        "expected_documents": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": null
+          }
+        ],
+        "expected_clauses": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": "6.1.1"
+          }
+        ],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": false,
+        "notes": "自编 DEMO，只验证检索流程，不代表工程要求。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "6.1.1",
+          "page": 2,
+          "page_end": 2,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 10.7932,
+          "vector_score": 0.4,
+          "rrf_score": 0.03278688524590164,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.03541,
+          "keyword_rank": 1,
+          "vector_rank": 1
+        }
+      ],
+      "document": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "clause": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "failed": false
+    },
+    {
+      "question": {
+        "id": "SEC-007",
+        "question": "控制缆线备用芯编号与接线图有什么关系？",
+        "domain": "控制电缆",
+        "expected_documents": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": null
+          }
+        ],
+        "expected_clauses": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": "3.2.2"
+          }
+        ],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": false,
+        "notes": "自编 DEMO，只验证检索流程，不代表工程要求。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.2",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 12.0843,
+          "vector_score": 0.3884,
+          "rrf_score": 0.03278688524590164,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.03541,
+          "keyword_rank": 1,
+          "vector_rank": 1
+        },
+        {
+          "standard_code": "DEMO-002",
+          "standard_name": "测试用电力设计资料 DEMO-002",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "ENTERPRISE_STANDARD",
+          "is_demo": 1,
+          "keyword_score": 1.9978,
+          "vector_score": 0.1097,
+          "rrf_score": 0.03200204813108039,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.034562,
+          "keyword_rank": 2,
+          "vector_rank": 3
+        },
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 1.9299,
+          "vector_score": 0.143,
+          "rrf_score": 0.03200204813108039,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.034562,
+          "keyword_rank": 3,
+          "vector_rank": 2
+        }
+      ],
+      "document": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "clause": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "failed": false
+    },
+    {
+      "question": {
+        "id": "SEC-008",
+        "question": "控制电缆屏蔽层和 CT 二次回路测试有哪些要求？",
+        "domain": "跨专业",
+        "expected_documents": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": null
+          }
+        ],
+        "expected_clauses": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": "3.2.1"
+          },
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": "6.1.1"
+          }
+        ],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": false,
+        "notes": "自编 DEMO，只验证检索流程，不代表工程要求。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 7.98,
+          "vector_score": 0.4518,
+          "rrf_score": 0.03278688524590164,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.03541,
+          "keyword_rank": 1,
+          "vector_rank": 1
+        },
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "6.1.1",
+          "page": 2,
+          "page_end": 2,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 7.1693,
+          "vector_score": 0.3354,
+          "rrf_score": 0.03200204813108039,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.034562,
+          "keyword_rank": 2,
+          "vector_rank": 3
+        },
+        {
+          "standard_code": "DEMO-002",
+          "standard_name": "测试用电力设计资料 DEMO-002",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "ENTERPRISE_STANDARD",
+          "is_demo": 1,
+          "keyword_score": 6.9015,
+          "vector_score": 0.4264,
+          "rrf_score": 0.03200204813108039,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.034562,
+          "keyword_rank": 3,
+          "vector_rank": 2
+        },
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.2",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 2.9736,
+          "vector_score": 0.2642,
+          "rrf_score": 0.03125,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.03375,
+          "keyword_rank": 4,
+          "vector_rank": 4
+        }
+      ],
+      "document": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "clause": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "failed": false
+    },
+    {
+      "question": {
+        "id": "SEC-009",
+        "question": "控制电缆屏蔽层测试要求",
+        "domain": "控制电缆",
+        "expected_documents": [
+          {
+            "standard_code": "DEMO-001",
+            "version": "2026 测试版",
+            "clause": null
+          },
+          {
+            "standard_code": "DEMO-002",
+            "version": "2026 测试版",
+            "clause": null
+          }
+        ],
+        "expected_clauses": [],
+        "clause_groups": [
+          [
+            {
+              "standard_code": "DEMO-001",
+              "version": "2026 测试版",
+              "clause": "3.2.1"
+            },
+            {
+              "standard_code": "DEMO-002",
+              "version": "2026 测试版",
+              "clause": "3.2.1"
+            }
+          ]
+        ],
+        "expected_keywords": [],
+        "negative": false,
+        "notes": "任选一个相关测试条文；文档召回仍分别统计两份资料。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 7.98,
+          "vector_score": 0.6061,
+          "rrf_score": 0.03278688524590164,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.03541,
+          "keyword_rank": 1,
+          "vector_rank": 1
+        },
+        {
+          "standard_code": "DEMO-002",
+          "standard_name": "测试用电力设计资料 DEMO-002",
+          "version": "2026 测试版",
+          "clause": "3.2.1",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "ENTERPRISE_STANDARD",
+          "is_demo": 1,
+          "keyword_score": 6.9015,
+          "vector_score": 0.5721,
+          "rrf_score": 0.03225806451612903,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.034839,
+          "keyword_rank": 2,
+          "vector_rank": 2
+        },
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.2",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 2.9736,
+          "vector_score": 0.3545,
+          "rrf_score": 0.031746031746031744,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.034286,
+          "keyword_rank": 3,
+          "vector_rank": 3
+        }
+      ],
+      "document": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 0.5,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "clause": {
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 1.0
+      },
+      "failed": false
+    },
+    {
+      "question": {
+        "id": "NEG-001",
+        "question": "月球核聚变反应堆安全距离是多少？",
+        "domain": "无依据",
+        "expected_documents": [],
+        "expected_clauses": [],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": true,
+        "notes": "相对于当前 DEMO 库确认无正式依据。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [],
+      "rejected": true,
+      "false_formal_evidence": false
+    },
+    {
+      "question": {
+        "id": "NEG-002",
+        "question": "GB 999999 对控制电缆屏蔽层有什么要求？",
+        "domain": "无依据",
+        "expected_documents": [],
+        "expected_clauses": [],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": true,
+        "notes": "相对于当前 DEMO 库确认无正式依据。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [],
+      "rejected": true,
+      "false_formal_evidence": false
+    },
+    {
+      "question": {
+        "id": "NEG-003",
+        "question": "紫色端子标记备用芯是否属于规范要求？",
+        "domain": "无依据",
+        "expected_documents": [],
+        "expected_clauses": [],
+        "clause_groups": [],
+        "expected_keywords": [],
+        "negative": true,
+        "notes": "相对于当前 DEMO 库确认无正式依据。",
+        "applicable_conditions": ""
+      },
+      "retrieved": [
+        {
+          "standard_code": "DEMO-001",
+          "standard_name": "测试用电力设计资料 DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.2",
+          "page": 1,
+          "page_end": 1,
+          "page_kind": "TXT逻辑页（以分页符分隔）",
+          "source_type": "STANDARD",
+          "is_demo": 1,
+          "keyword_score": 4.4964,
+          "vector_score": 0.0801,
+          "rrf_score": 0.03278688524590164,
+          "completeness_bonus": 1.08,
+          "standard_number_bonus": 1.0,
+          "category_bonus": 1.0,
+          "final_score": 0.03541,
+          "keyword_rank": 1,
+          "vector_rank": 1
+        }
+      ],
+      "rejected": true,
+      "false_formal_evidence": false
+    }
+  ],
+  "dataset_sha256": "36feeddea55d1307fd30ecc33ed60c10cd171b07d7abf5b035d97cd0afcb121a",
+  "code_revision": "59e1d2a084fa411b74cda2d8258cb18ad0862630",
+  "working_tree_dirty": true
+}

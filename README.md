@@ -107,3 +107,26 @@ node --check frontend/app.js
 V1 没有 OCR、复杂 PDF 表格结构恢复、自动识别印刷页码、真实语义模型下载、ANN 大规模索引、流式回答、会话语境消歧、自动规范有效性校验或自动冲突判定。DOCX/TXT 明确标逻辑页。超大知识库导入和检索可能慢，导入目前为同步等待。PDF 中异常排版可能退化为章节/页片段，应检查解析结果。
 
 下一阶段建议先选取有合法使用权限的真实规范进行人工条文验收，建立工程问题金标集；再接入经过授权的本地语义 Embedding、OCR、条文修订界面及完整的版本替代关系。检索可靠性验证后，再增加严格逐结论证据核验的工程分析。
+
+## V2 第一阶段：检索质量评测
+
+在现有 V1 原文查询基础上新增独立 evaluation/，不修改前端、不改变生产回答或检索排序。rag.search.search(debug=True) 可查看 BM25、向量、RRF、完整性/编号/专业乘数和最终分数，生产 API 保持原有字段。
+
+**真实规范原文可能受版权或授权限制，应仅导入具有合法使用权限的资料，不应将规范 PDF 直接提交至公开 Git 仓库。** knowledge/storage/（含 files 和 SQLite）、数据库、PDF、私钥及环境凭据均已忽略；真实金标和报告也应保存于私有目录。
+
+```powershell
+# 默认在临时隔离库自动导入自编 DEMO，完全离线
+.\.venv\Scripts\python.exe -m evaluation.run
+.\.venv\Scripts\python.exe -m evaluation.run --dataset tests/golden/questions.json
+
+# 对合法真实资料库取只读在线快照；原库和聊天记录不修改
+.\.venv\Scripts\python.exe -m evaluation.run --mode real --database '私有库路径\knowledge.sqlite3' --dataset '私有目录\questions.json' --output '私有目录\reports'
+```
+
+默认生成 reports/rag-evaluation.json 和 .md，终端输出指标；动态 reports 被 Git 忽略。可提交的自编示例在 evaluation/examples/。CLI 在独立子进程设置临时 DATA_DIR、关闭外部 API 并隔离登录配置，SQLite backup 支持含 WAL 的源库。真实模式要求评测库不含现行 DEMO，当前评测仅支持既有 local 向量基线；远程向量不能混用，未来增强需独立验证。
+
+金标结构和指标定义见 [Golden Dataset](tests/golden/README.md)，工程师标注流程见 [金标问题建立指南](docs/金标问题建立指南.md)。支持一题多条、多规范、替代条文组、指定编号、跨专业、同义/口语和负题。使用编号＋版本＋条号，不依赖随机 UUID。依据不存在或不属于现行已就绪库时直接报错。
+
+Document/Clause 分别统计 Hit@1/3/5/10、Recall@1/3/5/10 与 MRR；Hit 只需命中任一正确目标，Recall 才表示多个必需答案的覆盖。文档排名去重；MRR 截断于前 10 条候选。负题单独统计固定拒答提示和误报正式依据。逐题报告显示期望、实际排名、子评分和失败标志，不包含规范原文和源文件路径。
+
+当前 12 道 DEMO 题（9 正题、3 负题）仅验证评测流程，100% 的 Hit 与拒答率不代表真实工程质量。报告记录数据集/语料指纹、代码提交和工作区变更状态；在真实问题集完成前，不据此选择或宣称某种检索优化有效。

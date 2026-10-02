@@ -1,0 +1,247 @@
+[
+  {
+    "id": "SEC-001",
+    "question": "控制电缆屏蔽层应如何接地？",
+    "domain": "控制电缆",
+    "expected_documents": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版"
+      }
+    ],
+    "expected_clauses": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版",
+        "clause": "3.2.1"
+      }
+    ],
+    "expected_keywords": [],
+    "negative": false,
+    "notes": "自编 DEMO，只验证检索流程，不代表工程要求。"
+  },
+  {
+    "id": "SEC-002",
+    "question": "控制电缆备用芯应如何编号？",
+    "domain": "电气二次",
+    "expected_documents": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版"
+      }
+    ],
+    "expected_clauses": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版",
+        "clause": "3.2.2"
+      }
+    ],
+    "expected_keywords": [],
+    "negative": false,
+    "notes": "自编 DEMO，只验证检索流程，不代表工程要求。"
+  },
+  {
+    "id": "SEC-003",
+    "question": "DEMO-001 和 DEMO-002 对控制电缆屏蔽层分别怎么规定？",
+    "domain": "控制电缆",
+    "expected_documents": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版"
+      },
+      {
+        "standard_code": "DEMO-002",
+        "version": "2026 测试版"
+      }
+    ],
+    "expected_clauses": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版",
+        "clause": "3.2.1"
+      },
+      {
+        "standard_code": "DEMO-002",
+        "version": "2026 测试版",
+        "clause": "3.2.1"
+      }
+    ],
+    "expected_keywords": [],
+    "negative": false,
+    "notes": "自编 DEMO，只验证检索流程，不代表工程要求。"
+  },
+  {
+    "id": "SEC-004",
+    "question": "DEMO-002 屏蔽层连接位置如何记录？",
+    "domain": "控制电缆",
+    "expected_documents": [
+      {
+        "standard_code": "DEMO-002",
+        "version": "2026 测试版"
+      }
+    ],
+    "expected_clauses": [
+      {
+        "standard_code": "DEMO-002",
+        "version": "2026 测试版",
+        "clause": "3.2.1"
+      }
+    ],
+    "expected_keywords": [],
+    "negative": false,
+    "notes": "自编 DEMO，只验证检索流程，不代表工程要求。"
+  },
+  {
+    "id": "SEC-005",
+    "question": "电流互感器二次回路接线前需要核对什么？",
+    "domain": "继电保护",
+    "expected_documents": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版"
+      }
+    ],
+    "expected_clauses": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版",
+        "clause": "6.1.1"
+      }
+    ],
+    "expected_keywords": [],
+    "negative": false,
+    "notes": "自编 DEMO，只验证检索流程，不代表工程要求。"
+  },
+  {
+    "id": "SEC-006",
+    "question": "CT 二次接线前咋检查极性标记？",
+    "domain": "电气二次",
+    "expected_documents": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版"
+      }
+    ],
+    "expected_clauses": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版",
+        "clause": "6.1.1"
+      }
+    ],
+    "expected_keywords": [],
+    "negative": false,
+    "notes": "自编 DEMO，只验证检索流程，不代表工程要求。"
+  },
+  {
+    "id": "SEC-007",
+    "question": "控制缆线备用芯编号与接线图有什么关系？",
+    "domain": "控制电缆",
+    "expected_documents": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版"
+      }
+    ],
+    "expected_clauses": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版",
+        "clause": "3.2.2"
+      }
+    ],
+    "expected_keywords": [],
+    "negative": false,
+    "notes": "自编 DEMO，只验证检索流程，不代表工程要求。"
+  },
+  {
+    "id": "SEC-008",
+    "question": "控制电缆屏蔽层和 CT 二次回路测试有哪些要求？",
+    "domain": "跨专业",
+    "expected_documents": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版"
+      }
+    ],
+    "expected_clauses": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版",
+        "clause": "3.2.1"
+      },
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版",
+        "clause": "6.1.1"
+      }
+    ],
+    "expected_keywords": [],
+    "negative": false,
+    "notes": "自编 DEMO，只验证检索流程，不代表工程要求。"
+  },
+  {
+    "id": "SEC-009",
+    "question": "控制电缆屏蔽层测试要求",
+    "domain": "控制电缆",
+    "expected_documents": [
+      {
+        "standard_code": "DEMO-001",
+        "version": "2026 测试版"
+      },
+      {
+        "standard_code": "DEMO-002",
+        "version": "2026 测试版"
+      }
+    ],
+    "expected_clauses": [],
+    "expected_keywords": [],
+    "negative": false,
+    "notes": "任选一个相关测试条文；文档召回仍分别统计两份资料。",
+    "clause_groups": [
+      [
+        {
+          "standard_code": "DEMO-001",
+          "version": "2026 测试版",
+          "clause": "3.2.1"
+        },
+        {
+          "standard_code": "DEMO-002",
+          "version": "2026 测试版",
+          "clause": "3.2.1"
+        }
+      ]
+    ]
+  },
+  {
+    "id": "NEG-001",
+    "question": "月球核聚变反应堆安全距离是多少？",
+    "domain": "无依据",
+    "expected_documents": [],
+    "expected_clauses": [],
+    "expected_keywords": [],
+    "negative": true,
+    "notes": "相对于当前 DEMO 库确认无正式依据。"
+  },
+  {
+    "id": "NEG-002",
+    "question": "GB 999999 对控制电缆屏蔽层有什么要求？",
+    "domain": "无依据",
+    "expected_documents": [],
+    "expected_clauses": [],
+    "expected_keywords": [],
+    "negative": true,
+    "notes": "相对于当前 DEMO 库确认无正式依据。"
+  },
+  {
+    "id": "NEG-003",
+    "question": "紫色端子标记备用芯是否属于规范要求？",
+    "domain": "无依据",
+    "expected_documents": [],
+    "expected_clauses": [],
+    "expected_keywords": [],
+    "negative": true,
+    "notes": "相对于当前 DEMO 库确认无正式依据。"
+  }
+]

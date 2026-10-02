@@ -6,7 +6,7 @@ from database.store import all_clauses
 from rag.embeddings import Embeddings, tokens, cosine
 from config.settings import TOP_K
 
-def search(query, source_types=None, category='', document_ids=None, top_k=TOP_K):
+def search(query, source_types=None, category='', document_ids=None, top_k=TOP_K, debug=False):
     rows = [r for r in all_clauses() if (not source_types or r['source_type'] in source_types)
             and (not category or r['category'] == category)
             and (not document_ids or r['document_id'] in document_ids)]
@@ -40,8 +40,15 @@ def search(query, source_types=None, category='', document_ids=None, top_k=TOP_K
     ranks = {r['id']: i+1 for i,r in enumerate(semantic)}
     for i,row in enumerate(lexical):
         score = 1/(60+i+1)+1/(60+ranks[row['id']])
+        rrf = score
         if row['clause']: score *= 1.08
         if category and row['category'] == category: score *= 1.05
         if requested_codes and any(re.sub(r'\s','',c).lower() in re.sub(r'\s','',row['standard_code']).lower() for c in requested_codes): score *= 1.3
         row['score'] = round(score,6)
+        if debug:
+            row.update(keyword_score=row['bm25_score'], rrf_score=rrf,
+                       completeness_bonus=1.08 if row['clause'] else 1.0,
+                       standard_number_bonus=1.3 if requested_codes else 1.0,
+                       category_bonus=1.05 if category and row['category'] == category else 1.0,
+                       final_score=row['score'], keyword_rank=i+1, vector_rank=ranks[row['id']])
     return sorted(lexical,key=lambda r:r['score'],reverse=True)[:max(1,min(30,top_k))]

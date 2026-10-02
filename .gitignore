@@ -5,3 +5,13 @@ __pycache__/
 knowledge/storage/
 *.log
 deploy-source.tar.gz
+reports/
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+*.db
+*.pdf
+.env.*
+!.env.example
+*.key
+*.pem
