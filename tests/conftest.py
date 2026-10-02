@@ -5,6 +5,7 @@ os.environ['DATA_DIR'] = tempfile.mkdtemp(prefix='power-agent-tests-')
 os.environ['ALLOW_EXTERNAL_API'] = 'false'
 os.environ['EMBEDDING_PROVIDER'] = 'local'
 os.environ['LLM_MODEL'] = ''
+os.environ['ALLOWED_HOSTS'] = '127.0.0.1,localhost,testserver'
 import pytest
 from fastapi.testclient import TestClient
 from backend.main import app
